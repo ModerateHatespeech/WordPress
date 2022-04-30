@@ -24,7 +24,11 @@ jobs:
           git config --global user.name "SVNBot"
           git config --global user.email "info@moderatehatespeech.com"
           git add .
-          git commit -m "synchronize files"
-          git push
+          if [[ `git status --porcelain` ]]; then
+            git commit -m "synchronize files"
+            git push
+          fi
+
+          
 
 
