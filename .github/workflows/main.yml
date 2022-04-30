@@ -18,8 +18,9 @@ jobs:
       - name: sync files
         run: |
           svn co https://plugins.svn.wordpress.org/auto-comment-moderation/
-          cd auto-comment-moderation
-          cd trunk
+          mkdir -p src
+          cp -r auto-comment-moderation/trunk/* src/. 
+          rm -rf auto-comment-moderation
           git config --global user.name "SVNBot"
           git config --global user.email "info@moderatehatespeech.com"
           git add .
